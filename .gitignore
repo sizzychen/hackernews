@@ -15,3 +15,26 @@ public/sw.js
 public/workbox-sw*.js*
 
 .data
+
+# Clacky-related configuration
+.1024*
+!.1024
+.breakpoints
+
+# TypeScript/JavaScript files
+*.js.map
+*.tsbuildinfo
+.env
+.env.*
+
+# Vue/Nuxt files
+.nuxt-*
+.nitro
+.cache
+coverage
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.pnpm-store

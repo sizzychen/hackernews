@@ -32,15 +32,6 @@ import { feedsInfo } from '~~/utils/api'
       >
         {{ list.title }}
       </NuxtLink>
-      <span class="github">
-        <a
-          href="https://github.com/nuxt/hackernews"
-          target="_blank"
-          rel="noopener banner"
-        >
-          Open on GitHub
-        </a>
-      </span>
     </nav>
   </header>
 </template>

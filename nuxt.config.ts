@@ -26,4 +26,18 @@ export default defineNuxtConfig({
       },
     },
   },
+  
+  nitro: {
+    storage: process.env.NODE_ENV === 'development' 
+      ? {
+          data: {
+            driver: 'memory'
+          }
+        }
+      : {
+          data: {
+            driver: 'cloudflare-kv-binding'
+          }
+        }
+  },
 })

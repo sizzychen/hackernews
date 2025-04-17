@@ -44,6 +44,10 @@ useHead({
 </template>
 
 <style lang="postcss">
+.view {
+  padding-top: 70px;
+}
+
 .user-view {
   background-color: #fff;
   box-sizing: border-box;

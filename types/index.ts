@@ -19,3 +19,10 @@ export interface User {
   about: string
   loading?: boolean
 }
+
+export interface SearchResponse {
+  items: Item[]
+  total: number
+  page: number
+  pages: number
+}

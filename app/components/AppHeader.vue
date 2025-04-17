@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { feedsInfo } from '~~/utils/api'
+import SearchBar from '~/components/SearchBar.vue'
 </script>
 
 <template>
@@ -32,6 +33,83 @@ import { feedsInfo } from '~~/utils/api'
       >
         {{ list.title }}
       </NuxtLink>
+      <SearchBar class="header-search" />
     </nav>
   </header>
 </template>
+
+<style lang="postcss" scoped>
+.header {
+  background-color: #020420;
+  position: fixed;
+  z-index: 999;
+  min-height: 55px;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.inner {
+  max-width: 800px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 15px 5px;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 24px;
+  margin-right: 10px;
+}
+
+.header a {
+  text-decoration: none;
+  color: #ffffff;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 15px;
+  font-size: 16px;
+  font-weight: 500;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.05em;
+
+  &.active, &:hover {
+    color: #00DC82;
+    text-shadow: 0 0 8px rgba(0, 220, 130, 0.3);
+  }
+
+  &.active {
+    font-weight: 700;
+  }
+}
+
+.header-search {
+  margin-left: auto;
+}
+
+@media (max-width: 600px) {
+  .inner {
+    flex-wrap: wrap;
+    padding: 12px 10px;
+  }
+  
+  .header {
+    min-height: 55px;
+  }
+  
+  .header a {
+    color: #ffffff;
+    font-weight: 600;
+  }
+  
+  .header-search {
+    order: 3;
+    margin-top: 12px;
+    margin-left: 0;
+    width: 100%;
+    padding-bottom: 12px;
+  }
+}
+</style>

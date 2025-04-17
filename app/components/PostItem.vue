@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Item } from '~~/types'
+import { timeAgo, host, isAbsolute } from '~/utils'
 
 defineProps<{
   item: Item
@@ -37,7 +38,7 @@ defineProps<{
       <span class="time">
         {{ timeAgo(item.time) }} ago
       </span>
-      |
+      <span v-if="item.type !== 'job' && item.comments_count > 0">|</span>
       <span
         v-if="item.type !== 'job'"
         class="comments-link"

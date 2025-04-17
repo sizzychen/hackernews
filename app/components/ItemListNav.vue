@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import TooltipError from '~/components/TooltipError.vue'
+
 const props = defineProps<{
   feed: string
   page: number
@@ -69,12 +71,11 @@ const handleJumpToPage = (e: Event) => {
     </form>
     <span class="total-pages">of {{ maxPage }}</span>
 
-    <div 
+    <TooltipError
       v-if="errorMsg"
-      class="error-msg"
-    >
-      {{ errorMsg }}
-    </div>
+      :message="errorMsg"
+      position="bottom"
+    />
 
     <NuxtLink
       v-if="hasMore"
@@ -95,7 +96,7 @@ const handleJumpToPage = (e: Event) => {
 }
 
 .news-list-nav {
-  padding: 15px 30px;
+  padding: 15px 30px 25px;
   text-align: center;
   user-select: none;
   position: relative;
@@ -107,6 +108,8 @@ const handleJumpToPage = (e: Event) => {
   .disabled {
     opacity: 0.7;
     margin: 0 1em;
+    cursor: not-allowed;
+    transition: cursor 0.2s ease;
   }
 
   .jump-form {
@@ -149,21 +152,11 @@ const handleJumpToPage = (e: Event) => {
       background-color: #ff7518;
     }
   }
-
-  .error-msg {
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #ff4444;
-    font-size: 12px;
-    white-space: nowrap;
-  }
 }
 
   @media (max-width: 600px) {
     .news-list-nav {
-      padding: 10px 15px;
+      padding: 10px 15px 20px;
 
       .jump-form {
         margin: 0 0.25em;
@@ -174,18 +167,18 @@ const handleJumpToPage = (e: Event) => {
       }
 
       .page-input {
-      width: 50px;
-      padding: 3px 6px;
-    }
+        width: 50px;
+        padding: 3px 6px;
+      }
 
-    .jump-btn {
-      padding: 3px 8px;
-    }
+      .jump-btn {
+        padding: 3px 8px;
+      }
 
-    & a,
-    .disabled {
-      margin: 0 0.5em;
+      & a,
+      .disabled {
+        margin: 0 0.5em;
+      }
     }
   }
-}
 </style>

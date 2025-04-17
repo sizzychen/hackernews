@@ -64,6 +64,10 @@ useHead({
 </template>
 
 <style lang="postcss">
+.view {
+  padding-top: 70px;
+}
+
 .item-view-header {
   background-color: #fff;
   padding: 1.8em 2em 1em;

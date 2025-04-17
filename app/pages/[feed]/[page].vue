@@ -62,12 +62,6 @@ watch(page, to => pageChanged(to))
 
 <template>
   <div class="view">
-    <ItemListNav
-      :feed="feed"
-      :page="page"
-      :max-page="maxPage"
-    />
-
     <div
       :key="displayedPage"
       class="news-list"
@@ -96,9 +90,9 @@ watch(page, to => pageChanged(to))
   background-color: #fff;
   border-radius: 2px;
   position: absolute;
-  top: 40px;
+  top: 70px;
   left: 0;
-  margin: 10px 0;
+  margin: 30px 0 60px 0;
   width: 100%;
   transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
 
@@ -136,7 +130,8 @@ watch(page, to => pageChanged(to))
 
 @media (max-width: 600px) {
   .news-list {
-    margin: 10px 0;
+    margin: 30px 0 60px 0;
+    top: 70px;
   }
 }
 </style>
